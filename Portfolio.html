@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio – Benjamin Longuet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root{ --bg: #f6f7fb; --card:#ffffff; --text:#111827; --accent:#1f2a48; --muted:#6b7280; }
+        [data-theme="dark"]{ --bg:#0b0f14; --card:#0f1720; --text:#e6eef8; --accent:#7dd3fc; --muted:#9ca3af; }
+        *{box-sizing:border-box} body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+        a{color:var(--accent)}
+        header{display:flex;flex-wrap:wrap;height:88vh;min-height:520px}
+        .hero-left{flex:1;padding:8% 6%;display:flex;flex-direction:column;justify-content:center;gap:18px}
+        .hero-left h1{font-size:3.6rem;margin:0;font-weight:800}
+        .hero-left p{margin:0;font-size:1.15rem;color:var(--muted)}
+        .hero-cta{margin-top:12px;display:flex;gap:12px}
+        .btn{background:var(--accent);color:var(--card);padding:10px 16px;border-radius:10px;font-weight:600;border:none;cursor:pointer;transition:transform .18s}
+        .btn:active{transform:translateY(2px)}
+        .hero-right{flex:1;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:40px 20px;}
+        .hero-right img{width:50%;max-width:320px;border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,0.25);transform:translateY(0);transition:transform .6s}
+        .hero-right img:hover{transform:translateY(-8px)}
+        .vertical-tag{position:absolute;right:18px;top:40px;writing-mode:vertical-rl;font-weight:800;font-size:3.2rem;opacity:.12}
+        main{max-width:1100px;margin:-80px auto 80px;padding:0 20px}
+        .card{background:var(--card);padding:28px;border-radius:16px;box-shadow:0 8px 30px rgba(2,6,23,0.06);margin-bottom:30px;transition:transform .2s,box-shadow .2s}
+        .card:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(2,6,23,0.08)}
+        h2{margin:0 0 14px 0;font-size:1.9rem;border-left:6px solid var(--accent);padding-left:12px}
+        h3{margin:6px 0;color:var(--accent)}
+        p.lead{color:var(--muted);margin-top:6px}
+        .tags{display:flex;flex-wrap:wrap;gap:8px}
+        .tag{background:rgba(31,42,72,0.06);padding:8px 12px;border-radius:999px;font-weight:600}
+        .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+        .project-block{padding:18px;border-radius:12px;border:1px solid rgba(0,0,0,0.06)}
+        .project-title{font-weight:700;margin-bottom:8px}
+        .project-meta{font-size:0.95rem;color:var(--muted)}
+        .small-link{display:inline-block;margin-top:10px;color:var(--accent);font-weight:700}
+        .detail{display:grid;grid-template-columns:1fr 320px;gap:24px}
+        .detail aside{background:rgba(31,42,72,0.03);padding:16px;border-radius:12px}
+        .steps{margin-top:10px}
+        .step{padding:10px;border-radius:8px;border-left:4px solid var(--accent);margin-bottom:10px;background:rgba(31,42,72,0.02)}
+        .about-grid{display:flex;gap:24px;align-items:center}
+        .photo{width:200px;height:200px;border-radius:16px;overflow:hidden}
+        .photo img{width:100%;height:100%;object-fit:cover}
+        @media (max-width:900px){ .projects{grid-template-columns:1fr} .detail{grid-template-columns:1fr} header{height:auto} .hero-left h1{font-size:2.6rem} .hero-right{padding:30px 0} }
+        .topbar{display:flex;justify-content:flex-end;padding:14px 24px;gap:12px}
+        .toggle{display:flex;align-items:center;gap:8px;background:var(--card);padding:8px;border-radius:999px;border:1px solid rgba(0,0,0,0.04)}
+        .fade-up{opacity:0;transform:translateY(8px);animation:fadeUp .6s forwards}
+        @keyframes fadeUp{to{opacity:1;transform:none}}
+        .cv-row{display:flex;gap:16px;align-items:center}
+    </style>
+</head>
+<body data-theme="light">
+
+    <div class="topbar">
+        <div class="toggle">
+            <label for="themeSwitch">🌙</label>
+            <input id="themeSwitch" type="checkbox" aria-label="Basculer thème sombre">
+        </div>
+    </div>
+
+    <header>
+        <div class="hero-left">
+            <h1>Benjamin Longuet</h1>
+            <p class="lead">Technicien Support & Réseau — Spécialiste déploiement Ghost / DRBL | Infrastructure & Helpdesk</p>
+            <div class="hero-cta">
+                <a class="btn" href="#projects">Voir mes projets</a>
+                <a class="btn" href="#about" style="background:transparent;color:var(--card);border:2px solid rgba(255,255,255,0.12)">À propos</a>
+            </div>
+            <p style="margin-top:18px;color:var(--muted);max-width:640px">Je transforme des parcs hétérogènes en environnements standards, sécurisés et faciles à maintenir. Mon stage chez Groupe Laphal m'a permis d'implémenter un serveur DRBL/Clonezilla et de ghoster +30 machines en production.</p>
+        </div>
+        <div class="hero-right">
+            <img src="Benji.jpg" alt="Portrait Benjamin">
+            <div class="vertical-tag">INFRA</div>
+        </div>
+    </header>
+
+    <main>
+        <section id="contact" class="card fade-up">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+                <div>
+                    <strong>Aix-en-Provence</strong>
+                    <p style="margin:6px 0">📞 06 49 83 10 84 — ✉️ <a href="mailto:benlt2305@gmail.com">benlt2305@gmail.com</a></p>
+                    <p style="margin:6px 0"><a href="https://www.linkedin.com/in/benLonguet2308" target="_blank">LinkedIn</a></p>
+                </div>
+                <div class="cv-row">
+                    <a class="btn" href="/mnt/data/Template_R4 Benjamin LONGUET.pdf" target="_blank">Télécharger le rapport</a>
+                    <a class="ghost-btn" href="#" title="Télécharger mon CV (à ajouter)">Télécharger mon CV</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="card fade-up" style="animation-delay:.05s">
+            <h2>Compétences</h2>
+            <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:12px">
+                <div style="flex:1;min-width:260px">
+                    <h3>Systèmes & Support</h3>
+                    <ul>
+                        <li>Support N1 — GLPI / ticketing</li>
+                        <li>Windows 10/11 — déploiement & dépannage</li>
+                        <li>Prise en main à distance (RDP/AnyDesk/Teamviewer)</li>
+                    </ul>
+                </div>
+                <div style="flex:1;min-width:260px">
+                    <h3>Déploiement & Automatisation</h3>
+                    <ul>
+                        <li>DRBL / Clonezilla Server — Ghost multicast</li>
+                        <li>Création d'images, scripting et standardisation</li>
+                        <li>Gestion de parc & inventaire</li>
+                    </ul>
+                </div>
+                <div style="flex:1;min-width:260px">
+                    <h3>Réseau & Infrastructure</h3>
+                    <ul>
+                        <li>TCP/IP, DHCP, DNS, VLAN</li>
+                        <li>Schémas d'architecture, baies, SAN, NAS</li>
+                        <li>Sécurité basique : firewall, sauvegardes, bonnes pratiques AD</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="margin-top:14px" class="tags">
+                <span class="tag">Microsoft 365</span>
+                <span class="tag">Active Directory</span>
+                <span class="tag">GLPI</span>
+                <span class="tag">Linux</span>
+                <span class="tag">PowerShell (bases)</span>
+                <span class="tag">HTML/CSS/JS</span>
+            </div>
+        </section>
+
+        <section id="projects" class="card fade-up" style="animation-delay:.1s">
+            <h2>Projets</h2>
+            <div class="projects" style="margin-top:18px">
+                <div class="project-block">
+                    <div class="project-title">Ghost / DRBL — Déploiement massif</div>
+                    <div class="project-meta">Groupe Laphal — Stage 2024</div>
+                    <p style="margin-top:8px;color:var(--muted)">Mise en place d'un serveur DRBL + Clonezilla, création d'images et ghost multicast pour déployer des postes Dell et portables.</p>
+                    <a class="small-link" href="#ghost-details">→ Détails du projet</a>
+                </div>
+
+                <div class="project-block">
+                    <div class="project-title">Gestion de parc & Standardisation</div>
+                    <div class="project-meta">Maintenance & Inventaire</div>
+                    <p style="margin-top:8px;color:var(--muted)">Standardisation des configurations, intégration au domaine, procédures IMAC et gestion des cycles de vie.</p>
+                    <a class="small-link" href="#parc-details">→ Détails du projet</a>
+                </div>
+
+                <div class="project-block">
+                    <div class="project-title">Support Utilisateurs (N1)</div>
+                    <div class="project-meta">Helpdesk interne</div>
+                    <p style="margin-top:8px;color:var(--muted)">Traitement des tickets GLPI, diagnostic réseau, gestion d'imprimantes et réinstallation de postes.</p>
+                    <a class="small-link" href="#support-details">→ Détails du projet</a>
+                </div>
+
+                <div class="project-block">
+                    <div class="project-title">Radiateur connecté — Prototype</div>
+                    <div class="project-meta">Projet personnel / BTS CIEL</div>
+                    <p style="margin-top:8px;color:var(--muted)">Prototype piloté par ESP32 + Raspberry Pi, interface web, parsing ICS → CSV et base de données.</p>
+                    <a class="small-link" href="#radiateur-details">→ Détails du projet</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ghost details -->
+        <section id="ghost-details" class="card fade-up" style="animation-delay:.15s">
+            <h2>Ghost / DRBL — Détails</h2>
+            <div class="detail">
+                <div>
+                    <p class="lead">Résumé du projet réalisé chez Groupe Laphal durant mon stage : installation d'un serveur DRBL, configuration Clonezilla Server, et déploiement d'images sur plusieurs dizaines de postes en multicast.</p>
+                    <h3>Objectifs</h3>
+                    <ul>
+                        <li>Standardiser les postes pour faciliter la maintenance</li>
+                        <li>Accélérer les mises en service via ghost multicast</li>
+                        <li>Assurer la sécurité et la traçabilité des images</li>
+                    </ul>
+                    <h3>Étapes clés</h3>
+                    <div class="steps">
+                        <div class="step">Installation d'Ubuntu et préparation de l'environnement (ventoy / clé bootable)</div>
+                        <div class="step">Installation des services : DHCP, TFTP, NFS, DRBL et Clonezilla</div>
+                        <div class="step">Création et optimisation d'images dans /home/partimag</div>
+                        <div class="step">Tests en environnement lab puis déploiement multicast sur les PC</div>
+                    </div>
+                    <h3>Résultats</h3>
+                    <ul>
+                        <li>+30 postes ghostés avec succès</li>
+                        <li>Temps de déploiement réduit de façon significative</li>
+                        <li>Procédures documentées pour reproduction</li>
+                    </ul>
+                </div>
+                <aside>
+                    <strong>Compétences mobilisées</strong>
+                    <p class="project-meta">DRBL · Clonezilla · Linux · PXE · NFS · TFTP · Scripting</p>
+                    <div style="margin-top:10px">
+                        <strong>Outils & commandes</strong>
+                        <p class="project-meta">sudo drblpush -i · sudo dcs · mv /home/partimag · configuration DHCP/TFTP</p>
+                    </div>
+                    <div style="margin-top:12px">
+                        <a class="small-link" href="/mnt/data/Template_R4 Benjamin LONGUET.pdf" target="_blank">Lire le rapport (procédures complètes)</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Parc details -->
+        <section id="parc-details" class="card fade-up" style="animation-delay:.18s">
+            <h2>Gestion de parc — Détails</h2>
+            <div class="detail">
+                <div>
+                    <p class="lead">Organisation et suivi d'un parc de plusieurs dizaines de postes : inventaire, IMAC, intégration AD et documentation des procédures.</p>
+                    <h3>Actions réalisées</h3>
+                    <ul>
+                        <li>Inventory & tagging des postes</li>
+                        <li>Création d'images adaptées par service</li>
+                        <li>Intégration des machines au domaine laphal.com</li>
+                    </ul>
+                    <h3>Bénéfices pour l'entreprise</h3>
+                    <ul>
+                        <li>Réduction des interventions manuelles</li>
+                        <li>Meilleure traçabilité des configurations</li>
+                        <li>Processus IMAC standardisés</li>
+                    </ul>
+                </div>
+                <aside>
+                    <strong>Notes techniques</strong>
+                    <p class="project-meta">Rôles AD, DNS, noms d'ordinateurs, scripts d'automatisation</p>
+                    <div style="margin-top:12px">
+                        <span class="small-link">Procédures : ateliers d'install, validation image, mise en service</span>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Support details -->
+        <section id="support-details" class="card fade-up" style="animation-delay:.21s">
+            <h2>Support Utilisateurs — Détails</h2>
+            <div class="detail">
+                <div>
+                    <p class="lead">Gestion quotidienne des incidents via GLPI, résolution N1/N2 et interventions réseau.</p>
+                    <h3>Tâches fréquentes</h3>
+                    <ul>
+                        <li>Diagnostic réseau (IP, DHCP, DNS)</li>
+                        <li>Réinstallation & optimisation des postes lents</li>
+                        <li>Gestion imprimantes et drivers</li>
+                    </ul>
+                    <h3>Exemple d'un ticket traité</h3>
+                    <p class="project-meta">Diagnostic d'imprimante réseau — mise à jour driver, purge file d'attente, validation auprès de l'utilisateur.</p>
+                </div>
+                <aside>
+                    <strong>Outils</strong>
+                    <p class="project-meta">GLPI · AnyDesk · RDP · Office365</p>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Radiateur connecté – mise à jour complète basée sur le rapport fourni -->
+        <section id="radiateur-details" class="card fade-up" style="animation-delay:.24s">
+            <h2>Radiateur connecté — Détails (Rapport intégré)</h2>
+            <div class="detail">
+                <div>
+                    <p class="lead">Projet réalisé dans le cadre du BTS CIEL — système complet : ESP32, Raspberry Pi 5, base MariaDB, scripts Python de parsing ICS → CSV, WebSocket pour la communication et interface web.</p>
+
+                    <h3>Objectifs</h3>
+                    <ul>
+                        <li>Optimiser la consommation électrique et améliorer le confort thermique</li>
+                        <li>Automatiser la chauffe selon emploi du temps (Ecole Directe) et capteurs</li>
+                        <li>Permettre la collecte et l’analyse des mesures (historique en BDD)</li>
+                    </ul>
+
+                    <h3>Architecture & stack</h3>
+                    <ul>
+                        <li>Matériel : ESP32 (capteur DS18B20 + relais), Raspberry Pi 5 (Apache, MariaDB, Node.js WebSocket)</li>
+                        <li>Logiciels : Python (requests, icalendar), PHP, MariaDB, Node.js (ws)</li>
+                        <li>Automatisation : Cron pour import régulier ICS → CSV → BDD</li>
+                    </ul>
+
+                    <h3>Fonctionnalités clés développées</h3>
+                    <ul>
+                        <li>Download automatique d’un fichier iCal depuis Ecole Directe, conversion en CSV</li>
+                        <li>Insertion sécurisée en base MySQL (vérifications et real_escape_string)</li>
+                        <li>Serveur WebSocket pour distribution des fichiers vers clients (ESP32/PC)</li>
+                        <li>Scripts et procédures d’installation (Apache, PHP, MariaDB, PhpMyAdmin)</li>
+                    </ul>
+
+                    <h3>Procédure et étapes</h3>
+                    <div class="steps">
+                        <div class="step">Configuration du Raspberry Pi (Raspberry Pi OS, SSH, Apache, PHP, MariaDB)</div>
+                        <div class="step">Écriture du script Python : téléchargement iCal, parsing, conversion CSV</div>
+                        <div class="step">Insertion en BDD et modélisation (tables : Capteurs, Radiateurs, Mesures, Emploi_du_temps...)</div>
+                        <div class="step">Mise en place du serveur WebSocket (Node.js) pour transfert temps réel</div>
+                    </div>
+
+                    <h3>Résultats</h3>
+                    <ul>
+                        <li>Pipeline ICS → CSV → BDD fonctionnel et automatisé</li>
+                        <li>Communication serveur ↔ client via WebSocket opérationnelle</li>
+                        <li>Documentation et rapport complet (schémas, scripts, screenshots)</li>
+                    </ul>
+
+                    <h3>Ce qui peut être amélioré / prochaines étapes</h3>
+                    <ul>
+                        <li>Développer l’interface web finale pour visualisation temps réel et contrôle</li>
+                        <li>Implémenter authentification et sécurisation API/WebSocket</li>
+                        <li>Optimiser la consommation de l’ESP32 et tester la résistance en production</li>
+                    </ul>
+                </div>
+                <aside>
+                    <strong>Livrables disponibles</strong>
+                    <p class="project-meta">Rapport complet, scripts Python, schémas UML, export SQL</p>
+                    <div style="margin-top:12px">
+                        <a class="small-link" href="/mnt/data/Template_R4 Benjamin LONGUET.pdf" target="_blank">→ Télécharger le rapport (PDF)</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="about" class="card fade-up" style="animation-delay:.28s">
+            <h2>À propos & Parcours</h2>
+            <div class="about-grid">
+                <div>
+                    <p class="lead">Ayant fini fini mes études depuis peu, je suis actuellement à la recherche d’une opportunité professionnelle pour mettre à profit mes compétences en infrastructure, support et déploiement. Après avoir obtenu mon BTS CIEL IR, j’ai poursuivi un semestre en école d’ingénieur spécialisée dans le numérique, une expérience qui a renforcé ma compréhension globale des systèmes informatiques et ma capacité à aborder des projets complexes. Motivé, rigoureux et curieux, je souhaite rejoindre une équipe où je pourrai continuer à progresser tout en apportant une réelle valeur.</p>
+                    <h3>Parcours</h3>
+                    <ul>
+                        <li>BTS CIEL IR — Lycée Saint-Eloi</li>
+                        <li>Semestre en école d’ingénieur spécialisée dans le numérique</li>
+                        <li>Stage — Groupe Laphal (Infrastructure SI)</li>
+                        <li>Projets personnels : IoT, scripts d'automatisation, développement web</li>
+                    </ul>
+                    <h3>Qualités</h3>
+                    <ul>
+                        <li>Rigueur & sens de l'organisation</li>
+                        <li>Capacité d'apprentissage rapide</li>
+                        <li>Autonomie & esprit d’analyse</li>
+                        <li>Bon relationnel & pédagogie</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="card fade-up" style="animation-delay:.32s">
+            <h2>Téléchargements</h2>
+            <p class="lead">Documents complets et supports techniques.</p>
+            <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:12px">
+                <a class="btn" href="/mnt/data/Template_R4 Benjamin LONGUET.pdf" target="_blank">Télécharger le rapport complet (PDF)</a>
+                <a class="ghost-btn" href="#">Télécharger mon CV (à fournir)</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer style="text-align:center;padding:30px 20px;margin-top:40px">© 2025 — Benjamin Longuet — <a href="#contact">Contact</a></footer>
+
+    <script>
+        const themeSwitch = document.getElementById('themeSwitch');
+        const root = document.documentElement;
+        const stored = localStorage.getItem('theme') || 'light';
+        document.body.setAttribute('data-theme', stored);
+        themeSwitch.checked = stored === 'dark';
+        themeSwitch.addEventListener('change', e=>{
+            const theme = e.target.checked ? 'dark' : 'light';
+            document.body.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        });
+        document.addEventListener('DOMContentLoaded', ()=>{
+            document.querySelectorAll('.fade-up').forEach((el,i)=>{ el.style.animationDelay = (i*70)+'ms'; el.classList.add('fade-up'); });
+        });
+    </script>
+</body>
+</html>
